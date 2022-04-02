@@ -1,0 +1,183 @@
+{% extends 'base/base.html' %}
+{% block content %}
+<div class="container d-flex justify-content-center mt-5">
+  <div class="col-md-6 mx-auto">
+    <h1 class="text-center display-4 fst-italic rounded">
+      Social Media Researcher?</h1>
+    <form method="GET">
+      <div class="form-floating mb-3 mt-5">
+        <input type="text" name="query" class="form-control bg-dark text-light id="floatingInput" placeholder="alii76tt" required>
+        <label for="floatingInput" class="text-light">Username</label>
+      </div>
+      <div class="d-flex justify-content-center">
+        <button type="buton" class="btn btn-primary btn-lg" data-bs-toggle="modal" data-bs-target="#exampleModal"><i
+            class="fa-solid fa-magnifying-glass-arrow-right"></i> Search</button>
+      </div>
+    </form>
+    <div class="col-lg-12 mt-5">
+      <div class="mb-3">
+        <div class="card text-white bg-dark mb-3">
+          {% if query %}
+          <div class="alert alert-dark alert-dismissible fade show">
+            <i class="fa-solid fa-block-question"></i>
+            Query: <strong>{{query|upper}}</strong>
+          </div>
+          <ol class="list-group">
+            {% if data.facebook == "False" %}
+            <li class="list-group-item d-flex justify-content-between align-items-start bg-dark text-light">
+              <div class="ms-2 me-auto">
+                <div class="fw-bold"><i class="fa-solid fa-triangle-exclamation"></i> Facebook account not found!</div>
+              </div>
+            </li>
+            {% else %}
+            <li class="list-group-item d-flex justify-content-between align-items-start bg-dark text-light">
+              <div class="ms-2 me-auto">
+                <div class="fw-bold"><i class="fa-brands fa-facebook"></i> Facebook</div>
+              </div>
+              <a href="{{data.facebook}}" target="_blank"><span class="badge bg-primary rounded-pill">Go Link</span></a>
+            </li>
+            {% endif %}
+            {% if data.tumblr == "False" %}
+            <li class="list-group-item d-flex justify-content-between align-items-start bg-dark text-light">
+              <div class="ms-2 me-auto">
+                <div class="fw-bold"><i class="fa-solid fa-triangle-exclamation"></i> Tumblr account not found!</div>
+              </div>
+            </li>
+            {% else %}
+            <li class="list-group-item d-flex justify-content-between align-items-start bg-dark text-light">
+              <div class="ms-2 me-auto">
+                <div class="fw-bold"><i class="fa-brands fa-tumblr-square"></i> Tumblr</div>
+              </div>
+              <a href="{{data.tumblr}}" target="_blank"><span class="badge bg-primary rounded-pill">Go Link</span></a>
+            </li>
+            {% endif %}
+            {% if data.instagram == "False" %}
+            <li class="list-group-item d-flex justify-content-between align-items-start bg-dark text-light">
+              <div class="ms-2 me-auto">
+                <div class="fw-bold"><i class="fa-solid fa-triangle-exclamation"></i> Instagram account not found!</div>
+              </div>
+            </li>
+            {% else %}
+            <li class="list-group-item d-flex justify-content-between align-items-start bg-dark text-light">
+              <div class="ms-2 me-auto">
+                <div class="fw-bold"><i class="fa-brands fa-instagram-square"></i> Instagram</div>
+              </div>
+              <a href="{{data.instagram}}" target="_blank"><span class="badge bg-primary rounded-pill">Go
+                  Link</span></a>
+            </li>
+            {% endif %}
+            {% if data.twitter == "False" %}
+            <li class="list-group-item d-flex justify-content-between align-items-start bg-dark text-light">
+              <div class="ms-2 me-auto">
+                <div class="fw-bold"><i class="fa-solid fa-triangle-exclamation"></i> Twitter account not found!</div>
+              </div>
+            </li>
+            {% else %}
+            <li class="list-group-item d-flex justify-content-between align-items-start bg-dark text-light">
+              <div class="ms-2 me-auto">
+                <div class="fw-bold"><i class="fa-brands fa-twitter-square"></i> Twitter</div>
+              </div>
+              <a href="{{data.twitter}}" target="_blank"><span class="badge bg-primary rounded-pill">Go Link</span></a>
+            </li>
+            {% endif %}
+            {% if data.steam == "False" %}
+            <li class="list-group-item d-flex justify-content-between align-items-start bg-dark text-light">
+              <div class="ms-2 me-auto">
+                <div class="fw-bold"><i class="fa-solid fa-triangle-exclamation"></i> Steam account not found!</div>
+              </div>
+            </li>
+            {% else %}
+            <li class="list-group-item d-flex justify-content-between align-items-start bg-dark text-light">
+              <div class="ms-2 me-auto">
+                <div class="fw-bold"><i class="fa-brands fa-steam-square"></i> Steam</div>
+              </div>
+              <a href="{{data.steam}}" target="_blank"><span class="badge bg-primary rounded-pill">Go Link</span></a>
+            </li>
+            {% endif %}
+            {% if data.snapchat == "False" %}
+            <li class="list-group-item d-flex justify-content-between align-items-start bg-dark text-light">
+              <div class="ms-2 me-auto">
+                <div class="fw-bold"><i class="fa-solid fa-triangle-exclamation"></i> Snapchat account not found!</div>
+              </div>
+            </li>
+            {% else %}
+            <li class="list-group-item d-flex justify-content-between align-items-start bg-dark text-light">
+              <div class="ms-2 me-auto">
+                <div class="fw-bold"><i class="fa-brands fa-snapchat-square"></i> Snapchat</div>
+              </div>
+              <a href="{{data.snapchat}}" target="_blank"><span class="badge bg-primary rounded-pill">Go Link</span></a>
+            </li>
+            {% endif %}
+            {% if data.twitch == "False" %}
+            <li class="list-group-item d-flex justify-content-between align-items-start bg-dark text-light">
+              <div class="ms-2 me-auto">
+                <div class="fw-bold"><i class="fa-solid fa-triangle-exclamation"></i> Twitch account not found!</div>
+              </div>
+            </li>
+            {% else %}
+            <li class="list-group-item d-flex justify-content-between align-items-start bg-dark text-light">
+              <div class="ms-2 me-auto">
+                <div class="fw-bold"><i class="fa-brands fa-twitch"></i> Twitch</div>
+              </div>
+              <a href="{{data.twitch}}" target="_blank"><span class="badge bg-primary rounded-pill">Go Link</span></a>
+            </li>
+            {% endif %}
+            {% if data.tiktok == "False" %}
+            <li class="list-group-item d-flex justify-content-between align-items-start bg-dark text-light">
+              <div class="ms-2 me-auto">
+                <div class="fw-bold"><i class="fa-solid fa-triangle-exclamation"></i> Tiktok account not found!</div>
+              </div>
+            </li>
+            {% else %}
+            <li class="list-group-item d-flex justify-content-between align-items-start bg-dark text-light">
+              <div class="ms-2 me-auto">
+                <div class="fw-bold"><i class="fa-brands fa-tiktok"></i> Tiktok</div>
+              </div>
+              <a href="{{data.tiktok}}" target="_blank"><span class="badge bg-primary rounded-pill">Go Link</span></a>
+            </li>
+            {% endif %}
+          </ol>
+          {% else %}
+          <li class="list-group-item d-flex justify-content-between align-items-start bg-dark text-light">
+            <div class="ms-2 me-auto">
+              <div class="fw-bold"><i class="fa-solid fa-triangle-exclamation"></i> Please search username</div>
+            </div>
+          </li>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+    <div class="b-example-divider"></div>
+    <hr>
+
+    <div class="container">
+      <footer class="py-3 my-4">
+        <ul class="nav justify-content-center border-bottom pb-3 mb-3 text-center">
+          <li class="nav-item"><a href="https://github.com/alii76tt/django-social-media-researcher" class="nav-link px-2 text-success"><i target="_blank" class="fa-solid fa-code"></i> <br> Source
+              Code</a></li>
+          <li class="nav-item"><a href="https://alii76tt.pythonanywhere.com/about/" target="_blank" class="nav-link px-2 text-info"><i
+                class="fa-solid fa-circle-question"></i> <br> About Me</a></li>
+        </ul>
+      </footer>
+    </div>
+  </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Please Wait!</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="alert alert-primary alert-dismissible fade show" role="alert">
+          <i class="fa-solid fa-magnifying-glass"></i>
+          <strong>Please Wait!</strong> The process may take a long time.
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock content %}
