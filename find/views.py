@@ -5,6 +5,7 @@ from .modul import getData
 def index(request):
     if request.method == 'GET':
         query = request.GET.get('query')
+        query = str(query).lower()
         if query:
             data = getData(query)
         else:
